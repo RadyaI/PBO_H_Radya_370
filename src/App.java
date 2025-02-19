@@ -8,5 +8,9 @@ public class App {
        String nama = ambilScan.nextLine();
 
         System.out.println("Nama: " + nama);
+        System.out.println("Nama: " + nama);
+        System.out.println("Nama: " + nama);
+        System.out.println("Nama: " + nama);
+        System.out.println("Nama: " + nama);
     }
 }
