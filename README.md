@@ -5,8 +5,7 @@
 - git remote add origin url_repo
 - git push -u origin master
 
-<!-- BUAT UPDATE -->
 # Buat update
 - git add .
 - git commit -m "Message"
-- git push
+- git pushw
