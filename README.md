@@ -8,4 +8,4 @@
 # Buat update
 - git add .
 - git commit -m "Message"
-- git pushw
+- git push
