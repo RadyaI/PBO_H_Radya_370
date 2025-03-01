@@ -1,1 +1,20 @@
+# Ignore semua file hasil kompilasi
+bin/
+
+# Ignore file dalam folder latihan (jika tidak ingin dimasukkan ke repo)
 src/latihan/
+
+# Ignore file terkait editor
+.vscode/
+*.code-workspace
+
+# Ignore file terkait build tools (jika menggunakan Gradle atau Maven)
+.gradle/
+build/
+target/
+*.jar
+*.class
+
+# Ignore sistem file yang tidak perlu
+.DS_Store
+Thumbs.db
