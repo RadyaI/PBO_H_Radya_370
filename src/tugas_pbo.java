@@ -3,36 +3,20 @@
 
 import java.util.Scanner;
 
-class Admin {
-    String username;
-    String password;
-
-    Admin() {
-        this.username = "Admin370";
-        this.password = "Password370";
-    }
-}
-
-class Mahasiswa {
-    String username;
-    String password;
-
-    Mahasiswa() {
-        this.username = "Radya Iftikhar";
-        this.password = "202410370110370";
-    }
-}
-
 public class tugas_pbo {
     public static void main(String[] args) {
-        Mahasiswa mahasiswa = new Mahasiswa();
-        Admin admin = new Admin();
         Scanner scan = new Scanner(System.in);
+
+        final String usernameMahasiswa = "Radya Iftikhar";
+        final String passwordMahasiswa = "202410370110370";
+
+        final String usernameAdmin = "Admin370";
+        final String passwordAdmin = "Password370";
 
         System.out.println("Pilih login: ");
         System.out.println("1. Admin\n2. Mahasiswa");
         System.out.print("Masukkan pilihan: ");
-        String pilihan = scan.nextLine().trim().toLowerCase();
+        String pilihan = scan.nextLine().trim();
 
         if (pilihan.equals("1")) {
 
@@ -41,7 +25,7 @@ public class tugas_pbo {
             System.out.print("Masukkan password: ");
             String password = scan.nextLine();
 
-            if (username.equals(admin.username) && password.equals(admin.password)) {
+            if (username.equals(usernameAdmin) && password.equals(passwordAdmin)) {
                 System.out.println("Login admin berhasil!");
             } else {
                 System.out.println("Login gagal! Username atau password salah.");
@@ -54,8 +38,10 @@ public class tugas_pbo {
             System.out.print("Masukkan password: ");
             String password = scan.nextLine();
 
-            if (username.equals(mahasiswa.username) && password.equals(mahasiswa.password)) {
+            if (username.equals(usernameMahasiswa) && password.equals(passwordMahasiswa)) {
                 System.out.println("Login Mahasiswa berhasil!");
+                System.out.println("\nNama: " + username);
+                System.out.println("NIM: " + password);
             } else {
                 System.out.println("Login gagal! Username atau password salah.");
             }
