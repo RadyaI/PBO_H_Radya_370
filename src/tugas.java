@@ -3,7 +3,7 @@
 
 import java.util.Scanner;
 
-public class tugas_pbo {
+public class tugas {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
