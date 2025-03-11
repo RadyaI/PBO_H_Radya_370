@@ -3,15 +3,43 @@
 
 import java.util.Scanner;
 
+class Admin {
+    final String username = "Admin370";
+    final String password = "Password370";
+
+    boolean login(String getUsername, String getPassword) {
+        if (getUsername.equals(username) && getPassword.equals(password)) {
+            return true;
+        }
+        return false;
+    }
+
+}
+
+class Mahasiswa {
+    final String username = "Radya Iftikhar";
+    final String password = "202410370110370";
+
+    void displayInfo() {
+        System.out.println("\nNama: " + username);
+        System.out.println("Password: " + password);
+    }
+
+    boolean login(String getUsername, String getPassword) {
+        if (getUsername.equals(username) && getPassword.equals(password)) {
+            displayInfo();
+            return true;
+        }
+        return false;
+    }
+
+}
+
 public class tugas {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-
-        final String usernameMahasiswa = "Radya Iftikhar";
-        final String passwordMahasiswa = "202410370110370";
-
-        final String usernameAdmin = "Admin370";
-        final String passwordAdmin = "Password370";
+        Admin admin = new Admin();
+        Mahasiswa mahasiswa = new Mahasiswa();
 
         System.out.println("Pilih login: ");
         System.out.println("1. Admin\n2. Mahasiswa");
@@ -25,10 +53,12 @@ public class tugas {
             System.out.print("Masukkan password: ");
             String password = scan.nextLine();
 
-            if (username.equals(usernameAdmin) && password.equals(passwordAdmin)) {
-                System.out.println("Login admin berhasil!");
+            boolean login = admin.login(username, password);
+
+            if (login) {
+                System.out.println("Berhasil login");
             } else {
-                System.out.println("Login gagal! Username atau password salah.");
+                System.out.println("Password/username salah");
             }
 
         } else if (pilihan.equals("2")) {
@@ -38,12 +68,11 @@ public class tugas {
             System.out.print("Masukkan password: ");
             String password = scan.nextLine();
 
-            if (username.equals(usernameMahasiswa) && password.equals(passwordMahasiswa)) {
-                System.out.println("Login Mahasiswa berhasil!");
-                System.out.println("\nNama: " + username);
-                System.out.println("NIM: " + password);
+            boolean login = mahasiswa.login(username, password);
+            if (login) {
+                System.out.println("Berhasil login");
             } else {
-                System.out.println("Login gagal! Username atau password salah.");
+                System.out.println("Password/username salah");
             }
 
         } else {
