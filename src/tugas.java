@@ -22,7 +22,7 @@ class Mahasiswa {
 
     void displayInfo() {
         System.out.println("\nNama: " + username);
-        System.out.println("Password: " + password);
+        System.out.println("Nim: " + password);
     }
 
     boolean login(String getUsername, String getPassword) {
