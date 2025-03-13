@@ -6,6 +6,7 @@ class Hewan {
     String tampilkanInfo() {
         return "Nama: " + nama + "\n" + "Jenis: " + jenis + "\n" + "Suara: " + suara;
     }
+
 }
 
 public class codelab1 {
