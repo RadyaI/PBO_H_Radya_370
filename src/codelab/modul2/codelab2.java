@@ -1,3 +1,5 @@
+// Author: Muhammad Radya Iftikhar - 202410370110370
+
 package codelab.modul2;
 
 class RekeningBank {
@@ -5,19 +7,13 @@ class RekeningBank {
     double saldo;
 
     String tampilkanInfo() {
-        // Selama bukan void (pasti ada return)
-        // dan yang direturn ber tipedata itu
-        // Kenapa String? karena butuh dipake ditempat lain
         return "Nomor Rekening: " + nomorRekening + "\n" +
                 "Nama Pemilik: " + namaPemilik + "\n" +
                 "Saldo: Rp." + String.format("%.2f", saldo) + "\n";
     }
 
     void setorUang(double jumlahSetor) {
-        // Selama ini void tidak akan ada return
-        // kenapa pake void? Karena engga butuh return
         saldo += jumlahSetor;
-        // kenapa ga butuh? Karena nilainya langsung diprint disini
         System.out.printf("%s menyetor Rp.%.1f. Saldo sekarang %.1f\n", namaPemilik, jumlahSetor, saldo);
     }
 
