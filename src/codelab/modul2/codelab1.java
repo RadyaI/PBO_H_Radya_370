@@ -4,7 +4,11 @@ package codelab.modul2;
 
 class Hewan {
     String nama, suara, jenis;
-    int populasi;
+    protected int populasi;
+
+    // Private => hanya bisa diakses di classnya sendiri
+    // Protected => bisa diakses di file tersebut tapi tidak file lain
+    // Public => bisa diakses di file tersebut dan file lainnya
 
     String tampilkanInfo() {
         return "Nama: " + nama + "\n" + "Jenis: " + jenis + "\n" + "Suara: " + suara + "\n" + "populasi: " + populasi;

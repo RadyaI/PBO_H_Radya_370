@@ -1,5 +1,5 @@
 //author: Radya - 202410370110370
-//Current progress = Modul 1
+//Current progress = Modul 2
 
 import java.util.Scanner;
 
