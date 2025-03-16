@@ -1,4 +1,5 @@
 // Author: Muhammad Radya Iftikhar - 202410370110370
+
 package codelab.modul3;
 
 class KarakterGame {
@@ -58,8 +59,8 @@ class Musuh extends KarakterGame {
 public class codelab {
     public static void main(String[] args) {
         // KarakterGame KarakterUmum = new KarakterGame("npc", 100);
-        Pahlawan saitama = new Pahlawan("Saitama", 150);
-        Musuh tungTungSahur = new Musuh("Tung tung sahur", 200);
+        Pahlawan saitama = new Pahlawan("Upin", 150);
+        Musuh tungTungSahur = new Musuh("Ipin", 200);
 
         System.out.println("====== Game Start ======\n");
         System.out.printf("%s memiliki kesehatan: %d\n", saitama.getNama(), saitama.getKesehatan());
