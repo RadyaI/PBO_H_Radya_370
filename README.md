@@ -46,7 +46,7 @@ Haaiiiiu ⭐
    ```
 3. Masuk ke direktori yang diinginkan dan jalankan:
    ```bash
-   cd PBO/src/codelab/modul-1
+   cd PBO/src/codelab/modul1
    javac codelab1.java
    java codelab1
    ```
