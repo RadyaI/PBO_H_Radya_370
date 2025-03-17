@@ -27,7 +27,8 @@ class KarakterGame {
         return kesehatan;
     }
 
-    void serang(KarakterGame target) {  }
+    void serang(KarakterGame target) {
+    }
 }
 
 class Pahlawan extends KarakterGame {
@@ -39,7 +40,11 @@ class Pahlawan extends KarakterGame {
     void serang(KarakterGame target) {
         target.setKesehatan(target.getKesehatan() - 20);
         System.out.printf("%s menyerang %s menggunakan Kamehameha!\n", getNama(), target.getNama());
-        System.out.printf("Kesehatan %s sekarang %d\n", target.getNama(), target.getKesehatan());
+        if (target.getKesehatan() <= 0) {
+            System.out.printf("%s mati...\n\n", target.getNama());
+        } else {
+            System.out.printf("Kesehatan %s sekarang %d\n\n", target.getNama(), target.getKesehatan());
+        }
     }
 }
 
@@ -50,28 +55,29 @@ class Musuh extends KarakterGame {
 
     @Override
     void serang(KarakterGame target) {
-        target.setKesehatan(getKesehatan() - 20);
+        target.setKesehatan(target.getKesehatan() - 15);
         System.out.printf("%s menyerang %s menggunakan Sarung Wadimor!\n", getNama(), target.getNama());
-        System.out.printf("Kesehatan %s sekarang %d\n", target.getNama(), target.getKesehatan());
+        if (target.getKesehatan() <= 0) {
+            System.out.printf("%s mati...\n\n", target.getNama());
+        } else {
+            System.out.printf("Kesehatan %s sekarang %d\n\n", target.getNama(), target.getKesehatan());
+        }
     }
 }
 
 public class codelab {
     public static void main(String[] args) {
-        // KarakterGame KarakterUmum = new KarakterGame("npc", 100);
-        Pahlawan saitama = new Pahlawan("Upin", 150);
-        Musuh tungTungSahur = new Musuh("Ipin", 200);
+        KarakterGame KarakterUmum = new KarakterGame("Rembo", 20);
+        Pahlawan upin = new Pahlawan("Upin", 150);
+        Musuh ipin = new Musuh("Ipin", 200);
 
         System.out.println("====== Game Start ======\n");
-        System.out.printf("%s memiliki kesehatan: %d\n", saitama.getNama(), saitama.getKesehatan());
-        System.out.printf("%s memiliki kesehatan: %d\n", tungTungSahur.getNama(), tungTungSahur.getKesehatan());
+        System.out.printf("%s memiliki kesehatan: %d\n", upin.getNama(), upin.getKesehatan());
+        System.out.printf("%s memiliki kesehatan: %d\n", ipin.getNama(), ipin.getKesehatan());
+        System.out.printf("%s memiliki kesehatan: %d\n\n", KarakterUmum.getNama(), KarakterUmum.getKesehatan());
 
-        System.out.println();
-
-        saitama.serang(tungTungSahur);
-
-        System.out.println();
-
-        tungTungSahur.serang(saitama);
+        upin.serang(ipin);
+        upin.serang(KarakterUmum);
+        ipin.serang(upin);
     }
 }
