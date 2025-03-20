@@ -28,6 +28,7 @@ class KarakterGame {
     }
 
     void serang(KarakterGame target) {
+        System.out.printf("%snya baik tidak menyerang...\n\n", getNama());
     }
 }
 
@@ -76,6 +77,7 @@ public class codelab {
         System.out.printf("%s memiliki kesehatan: %d\n", ipin.getNama(), ipin.getKesehatan());
         System.out.printf("%s memiliki kesehatan: %d\n\n", KarakterUmum.getNama(), KarakterUmum.getKesehatan());
 
+        KarakterUmum.serang(ipin);
         upin.serang(ipin);
         upin.serang(KarakterUmum);
         ipin.serang(upin);
