@@ -40,11 +40,11 @@ class Pahlawan extends KarakterGame {
     @Override
     void serang(KarakterGame target) {
         target.setKesehatan(target.getKesehatan() - 20);
-        System.out.printf("%s menyerang %s menggunakan Kamehameha!\n", getNama(), target.getNama());
+        System.out.printf("%s(kamu) menyerang %s(musuh) menggunakan Kamehameha!\n", getNama(), target.getNama());
         if (target.getKesehatan() <= 0) {
-            System.out.printf("%s mati...\n\n", target.getNama());
+            System.out.printf("%s(musuh) mati...\n\n", target.getNama());
         } else {
-            System.out.printf("Kesehatan %s sekarang %d\n\n", target.getNama(), target.getKesehatan());
+            System.out.printf("Kesehatan %s(musuh) sekarang %d\n\n", target.getNama(), target.getKesehatan());
         }
     }
 }
@@ -57,11 +57,11 @@ class Musuh extends KarakterGame {
     @Override
     void serang(KarakterGame target) {
         target.setKesehatan(target.getKesehatan() - 15);
-        System.out.printf("%s menyerang %s menggunakan Sarung Wadimor!\n", getNama(), target.getNama());
+        System.out.printf("%s(musuh) menyerang %s(kamu) menggunakan Sarung Wadimor!\n", getNama(), target.getNama());
         if (target.getKesehatan() <= 0) {
-            System.out.printf("%s mati...\n\n", target.getNama());
+            System.out.printf("%s(kamu) mati...\n\n", target.getNama());
         } else {
-            System.out.printf("Kesehatan %s sekarang %d\n\n", target.getNama(), target.getKesehatan());
+            System.out.printf("Kesehatan %s(kamu) sekarang %d\n\n", target.getNama(), target.getKesehatan());
         }
     }
 }
@@ -73,13 +73,15 @@ public class codelab {
         Musuh ipin = new Musuh("Ipin", 200);
 
         System.out.println("====== Game Start ======\n");
-        System.out.printf("%s memiliki kesehatan: %d\n", upin.getNama(), upin.getKesehatan());
-        System.out.printf("%s memiliki kesehatan: %d\n", ipin.getNama(), ipin.getKesehatan());
+        System.out.printf("%s (kamu) memiliki kesehatan: %d\n", upin.getNama(), upin.getKesehatan());
+        System.out.printf("%s (musuh) memiliki kesehatan: %d\n", ipin.getNama(), ipin.getKesehatan());
         System.out.printf("%s memiliki kesehatan: %d\n\n", KarakterUmum.getNama(), KarakterUmum.getKesehatan());
 
         KarakterUmum.serang(ipin);
         upin.serang(ipin);
         upin.serang(KarakterUmum);
+        ipin.serang(upin);
+        ipin.serang(upin);
         ipin.serang(upin);
     }
 }
