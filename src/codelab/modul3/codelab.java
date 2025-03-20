@@ -40,7 +40,7 @@ class Pahlawan extends KarakterGame {
     @Override
     void serang(KarakterGame target) {
         target.setKesehatan(target.getKesehatan() - 20);
-        System.out.printf("%s(kamu) menyerang %s(musuh) menggunakan Kamehameha!\n", getNama(), target.getNama());
+        System.out.printf("%s(kamu) menyerang %s(musuh) menggunakan sendal terbang!\n", getNama(), target.getNama());
         if (target.getKesehatan() <= 0) {
             System.out.printf("%s(musuh) mati...\n\n", target.getNama());
         } else {
