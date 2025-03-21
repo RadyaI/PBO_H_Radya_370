@@ -2,6 +2,8 @@
 
 package codelab.modul3;
 
+import java.util.Scanner;
+
 class KarakterGame {
     private String nama;
     private int kesehatan;
@@ -40,7 +42,7 @@ class Pahlawan extends KarakterGame {
     @Override
     void serang(KarakterGame target) {
         target.setKesehatan(target.getKesehatan() - 20);
-        System.out.printf("%s(kamu) menyerang %s(musuh) menggunakan sendal terbang!\n", getNama(), target.getNama());
+        System.out.printf("%s(kamu) menyerang %s(musuh) menggunakan Laser! (-20)\n", getNama(), target.getNama());
         if (target.getKesehatan() <= 0) {
             System.out.printf("%s(musuh) mati...\n\n", target.getNama());
         } else {
@@ -57,7 +59,7 @@ class Musuh extends KarakterGame {
     @Override
     void serang(KarakterGame target) {
         target.setKesehatan(target.getKesehatan() - 15);
-        System.out.printf("%s(musuh) menyerang %s(kamu) menggunakan Sarung Wadimor!\n", getNama(), target.getNama());
+        System.out.printf("%s(musuh) menyerang %s(kamu) menggunakan Pistol! (-15)\n", getNama(), target.getNama());
         if (target.getKesehatan() <= 0) {
             System.out.printf("%s(kamu) mati...\n\n", target.getNama());
         } else {
@@ -68,20 +70,38 @@ class Musuh extends KarakterGame {
 
 public class codelab {
     public static void main(String[] args) {
-        KarakterGame KarakterUmum = new KarakterGame("Rembo", 20);
-        Pahlawan upin = new Pahlawan("Upin", 150);
-        Musuh ipin = new Musuh("Ipin", 200);
+        KarakterGame KarakterUmum = new KarakterGame("Probe", 20);
+        Musuh enemy = new Musuh("Adudu", 200);
+
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Masukkan nickname: ");
+        String nickname = scan.nextLine();
+        Pahlawan hero = new Pahlawan(nickname, 150);
+        scan.close();
 
         System.out.println("====== Game Start ======\n");
-        System.out.printf("%s (kamu) memiliki kesehatan: %d\n", upin.getNama(), upin.getKesehatan());
-        System.out.printf("%s (musuh) memiliki kesehatan: %d\n", ipin.getNama(), ipin.getKesehatan());
+        System.out.printf("%s (kamu) memiliki kesehatan: %d\n", hero.getNama(), hero.getKesehatan());
+        System.out.printf("%s (musuh) memiliki kesehatan: %d\n", enemy.getNama(), enemy.getKesehatan());
         System.out.printf("%s memiliki kesehatan: %d\n\n", KarakterUmum.getNama(), KarakterUmum.getKesehatan());
 
-        KarakterUmum.serang(ipin);
-        upin.serang(ipin);
-        upin.serang(KarakterUmum);
-        ipin.serang(upin);
-        ipin.serang(upin);
-        ipin.serang(upin);
+        KarakterUmum.serang(enemy);
+        hero.serang(enemy);
+        hero.serang(KarakterUmum);
+        enemy.serang(hero);
+        enemy.serang(hero);
+        enemy.serang(hero);
+        enemy.serang(hero);
+        enemy.serang(hero);
+        enemy.serang(hero);
+        enemy.serang(hero);
+        hero.serang(enemy);
+        hero.serang(enemy);
+        hero.serang(enemy);
+        hero.serang(enemy);
+        hero.serang(enemy);
+        hero.serang(enemy);
+        hero.serang(enemy);
+        hero.serang(enemy);
+        hero.serang(enemy);
     }
 }
