@@ -1,7 +1,6 @@
 // Author: Muhammad Radya Iftikhar - 202410370110370
 
 package codelab.modul3;
-
 import java.util.Scanner;
 
 class KarakterGame {
