@@ -1,6 +1,6 @@
 # 📚 Tugas Kuliah - Pemrograman Java
 
-Haaiiiiu btw semua file kodingan ada di folder src yaaa 
+Haaiiiiu btw semua file kodingan ada di folder src yaaa
 
 ---
 
