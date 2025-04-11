@@ -13,26 +13,24 @@ class Admin {
         }
         return false;
     }
-
 }
 
 class Mahasiswa {
-    final String username = "Radya Iftikhar";
-    final String password = "202410370110370";
+    final String nama = "Radya Iftikhar";
+    final String nim = "202410370110370";
 
     void displayInfo() {
-        System.out.println("\nNama: " + username);
-        System.out.println("Nim: " + password);
+        System.out.println("\nNama: " + nama);
+        System.out.println("Nim: " + nim);
     }
 
     boolean login(String getUsername, String getPassword) {
-        if (getUsername.equals(username) && getPassword.equals(password)) {
+        if (getUsername.equals(nama) && getPassword.equals(nim)) {
             displayInfo();
             return true;
         }
         return false;
     }
-
 }
 
 public class tugas {
@@ -80,6 +78,5 @@ public class tugas {
         }
 
         scan.close();
-
     }
 }
