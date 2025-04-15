@@ -1,19 +1,23 @@
 package tugas;
 
-class Mahasiswa {
-    final String nama = "Radya Iftikhar";
-    final String nim = "202410370110370";
-
-    void displayInfo() {
-        System.out.println("\nNama: " + nama);
-        System.out.println("Nim: " + nim);
+class Mahasiswa extends User {
+    public Mahasiswa(String nama, String nim) {
+        super(nama, nim);
     }
 
-    boolean login(String getUsername, String getPassword) {
-        if (getUsername.equals(nama) && getPassword.equals(nim)) {
-            displayInfo();
-            return true;
+    @Override
+    public void login(String username, String pass) {
+        if (username.equals(super.getNama()) && pass.equals(super.getNim())) {
+            displayInfo(super.getNama(), super.getNim());
+        } else {
+            System.out.println("Username atau Password Salah");
         }
-        return false;
+    }
+
+    @Override
+    public void displayInfo(String nama, String nim){
+        System.out.println("Login Berhasil\n");
+        System.out.printf("Nama: %s\n", nama);
+        System.out.printf("Nim: %s\n", nim);
     }
 }

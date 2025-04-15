@@ -1,14 +1,14 @@
-package tugas;
 //author: Radya - 202410370110370
-//Current progress = Modul 2 
+//Current progress: Modul 2 
+package tugas;
 
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) {    
         Scanner scan = new Scanner(System.in);
-        Admin admin = new Admin();
-        Mahasiswa mahasiswa = new Mahasiswa();
+        Admin admin = new Admin("Muhammad Radya Admin", "2024370");
+        Mahasiswa mahasiswa = new Mahasiswa("Muhammad Radya Iftikhar", "202410370110370");
 
         System.out.println("Pilih login: ");
         System.out.println("1. Admin\n2. Mahasiswa");
@@ -22,13 +22,7 @@ public class Main {
             System.out.print("Masukkan password: ");
             String password = scan.nextLine();
 
-            boolean login = admin.login(username, password);
-
-            if (login) {
-                System.out.println("Berhasil login");
-            } else {
-                System.out.println("Password/username salah");
-            }
+            admin.login(username, password);
 
         } else if (pilihan.equals("2")) {
 
@@ -37,12 +31,7 @@ public class Main {
             System.out.print("Masukkan password: ");
             String password = scan.nextLine();
 
-            boolean login = mahasiswa.login(username, password);
-            if (login) {
-                System.out.println("Berhasil login");
-            } else {
-                System.out.println("Password/username salah");
-            }
+            mahasiswa.login(username, password);
 
         } else {
             System.out.println("Input tidak valid!");
