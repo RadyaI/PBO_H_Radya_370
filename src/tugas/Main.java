@@ -1,5 +1,5 @@
 //author: Radya - 202410370110370
-//Current progress: Modul 2 
+//Current progress: Modul 3
 package tugas;
 
 import java.util.Scanner;

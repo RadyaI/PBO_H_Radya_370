@@ -23,5 +23,4 @@ public class Admin extends User {
         System.out.printf("Nama: %s\n", nama);
         System.out.printf("Nim: %s  \n", nim);
     }
-
 }
