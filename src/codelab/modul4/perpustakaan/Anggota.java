@@ -16,11 +16,6 @@ public class Anggota implements Peminjaman {
         System.out.printf("Anggota: %s (id: %s)\n", nama, idAnggota);
     }
 
-    @Override
-    public void pinjamBuku() {
-        System.out.println("======================");
-    }
-
     public void pinjamBuku(String judulBuku) {
         System.out.printf("%s meminjam buku (%s)\n", nama, judulBuku);
         this.bukuPinjam = judulBuku;
