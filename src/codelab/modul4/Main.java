@@ -9,7 +9,7 @@ public class Main {
         Fiksi fiksi = new Fiksi("Bumi Manusia", "Pramoedya Ananta Toer");
         NonFiksi NonFiksi = new NonFiksi("The Alchemist", "Paulo Coelho");
         Anggota anggota1 = new Anggota("Muhammad Radya Iftikhar", "H370");
-        Anggota anggota2 = new Anggota("Nur Aini", "H381");
+        Anggota anggota2 = new Anggota("Tipul", "H360");
 
         NonFiksi.displayInfo();
         fiksi.displayInfo();
@@ -22,7 +22,7 @@ public class Main {
         System.out.println();
 
         anggota1.pinjamBuku(NonFiksi.getJudul());
-        anggota2.pinjamBuku(fiksi.getJudul(), 7);
+        anggota2.pinjamBuku(fiksi.getJudul(), 5);
 
         System.out.println();
 

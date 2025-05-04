@@ -1,11 +1,14 @@
 package codelab.modul4.perpustakaan;
 
+import java.time.LocalDate;
+
 public class Anggota implements Peminjaman {
 
     protected String nama;
     protected String idAnggota;
 
     protected String bukuPinjam;
+    LocalDate defaultDeadline = LocalDate.now().plusDays(7);
 
     public Anggota(String nama, String idAnggota) {
         this.nama = nama;
@@ -17,12 +20,14 @@ public class Anggota implements Peminjaman {
     }
 
     public void pinjamBuku(String judulBuku) {
-        System.out.printf("%s meminjam buku (%s)\n", nama, judulBuku);
+        System.out.printf("%s meminjam buku (%s) selama 7 hari deadline (%s)\n", nama, judulBuku, defaultDeadline);
         this.bukuPinjam = judulBuku;
     }
 
     public void pinjamBuku(String judulBuku, int durasi) {
-        System.out.printf("%s meminjam buku (%s) selama %d hari\n", nama, judulBuku, durasi);
+        LocalDate durasiDeadline = LocalDate.now().plusDays(durasi);
+        System.out.printf("%s meminjam buku (%s) selama %d hari deadline (%s)\n", nama, judulBuku, durasi,
+                durasiDeadline);
         this.bukuPinjam = judulBuku;
     }
 

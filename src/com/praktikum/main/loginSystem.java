@@ -1,10 +1,12 @@
 //author: Radya - 202410370110370
 //Current progress: Modul 3
-package tugas;
+package com.praktikum.main;
 
 import java.util.Scanner;
+import com.praktikum.users.*;
 
-public class Main {
+
+public class loginSystem {
     public static void main(String[] args) {    
         Scanner scan = new Scanner(System.in);
         Admin admin = new Admin("Muhammad Radya Admin", "2024370");

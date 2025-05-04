@@ -1,4 +1,4 @@
-package tugas;
+package com.praktikum.users;
 
 public class Admin extends User {
     private String username = "Admin370";

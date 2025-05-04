@@ -1,6 +1,6 @@
-package tugas;
+package com.praktikum.users;
 
-class Mahasiswa extends User {
+public class Mahasiswa extends User {
     public Mahasiswa(String nama, String nim) {
         super(nama, nim);
     }

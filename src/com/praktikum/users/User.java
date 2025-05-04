@@ -1,4 +1,4 @@
-package tugas;
+package com.praktikum.users;
 
 public class User {
     private String nama;
