@@ -70,7 +70,7 @@ public class Mahasiswa extends User implements MahasiswaActions {
         System.out.print("Lokasi terakhir ditemukan: ");
         String lokasiTerakhir = scan.nextLine();
 
-        System.out.println("===============");
+        System.out.println("\n===============");
         System.out.println("Barang: " + namaBarang);
         System.out.println("Deskripsi Barang: " + deskripsiBarang);
         System.out.println("Lokasi terakhir: " + lokasiTerakhir);
