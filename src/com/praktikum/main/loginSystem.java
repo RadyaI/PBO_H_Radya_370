@@ -9,8 +9,8 @@ import com.praktikum.users.*;
 public class loginSystem {
     public static void main(String[] args) {    
         Scanner scan = new Scanner(System.in);
-        Admin admin = new Admin("Muhammad Radya Admin", "2024370");
-        Mahasiswa mahasiswa = new Mahasiswa("Muhammad Radya Iftikhar", "202410370110370");
+        User admin = new Admin("Muhammad Radya Admin", "2024370");
+        User mahasiswa = new Mahasiswa("Muhammad Radya Iftikhar", "202410370110370");
 
         System.out.println("Pilih login: ");
         System.out.println("1. Admin\n2. Mahasiswa");

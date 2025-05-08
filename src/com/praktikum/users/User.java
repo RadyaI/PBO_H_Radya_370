@@ -1,6 +1,6 @@
 package com.praktikum.users;
 
-public class User {
+public abstract class User {
     private String nama;
     private String nim;
 
@@ -25,10 +25,9 @@ public class User {
         return nim;
     }
 
-    public void login(String username, String pass) {
-    }
+    abstract public void login(String username, String pass);
 
-    public void displayInfo(String nama, String nim) {
+    abstract public void displayInfo(String nama, String nim);
 
-    }
+    abstract void displayAppMenu();
 }
