@@ -71,4 +71,5 @@ public class Admin extends User implements AdminActions {
     public void manageItems() {
         System.err.println("\n>> Fitur Kelola Barang Belum Tersedia <<");
     }
+    
 }

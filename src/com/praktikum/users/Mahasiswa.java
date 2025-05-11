@@ -17,7 +17,7 @@ public class Mahasiswa extends User implements MahasiswaActions {
             displayInfo(super.getNama(), super.getNim());
             displayAppMenu();
         } else {
-            System.out.println("Username atau Password Salah");
+            System.out.println("Username atau Password Salah\n");
         }
     }
 
