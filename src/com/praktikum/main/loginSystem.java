@@ -1,44 +1,64 @@
-//author: Radya - 202410370110370
-//Current progress: Modul 4
 package com.praktikum.main;
 
-import java.util.Scanner;
-import com.praktikum.users.*;
+import com.praktikum.data.Item;
+import com.praktikum.error.loginExeptions;
+import com.praktikum.users.Admin;
+import com.praktikum.users.Mahasiswa;
+import com.praktikum.users.User;
 
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class loginSystem {
-    public static void main(String[] args) {    
-        Scanner scan = new Scanner(System.in);
-        User admin = new Admin("Muhammad Radya Admin", "2024370");
-        User mahasiswa = new Mahasiswa("Muhammad Radya Iftikhar", "202410370110370");
+    static public ArrayList<User> userList = new ArrayList<>();
+    static public ArrayList<Item> reportedItem = new ArrayList<>();
 
-        System.out.println("Pilih login: ");
-        System.out.println("1. Admin\n2. Mahasiswa");
-        System.out.print("Masukkan pilihan: ");
-        String pilihan = scan.nextLine().trim();
+    public static void main(String[] args) {
+        userList.add(new Admin("Admin", "Admin370"));
+        userList.add(new Mahasiswa("Radya", "370"));
 
-        if (pilihan.equals("1")) {
+        Scanner scanner = new Scanner(System.in);
+        User loggedInUser = null;
 
-            System.out.print("Masukkan username: ");
-            String username = scan.nextLine();
-            System.out.print("Masukkan password: ");
-            String password = scan.nextLine();
+        System.out.println("\n=== Sistem Login ===");
 
-            admin.login(username, password);
+        while (loggedInUser == null) {
+            System.out.print("Masukkan username/nama: ");
+            String username = scanner.nextLine();
+            System.out.print("Masukkan password/NIM: ");
+            String password = scanner.nextLine();
 
-        } else if (pilihan.equals("2")) {
+            try {
+                loggedInUser = doLogin(username, password);
 
-            System.out.print("Masukkan username: ");
-            String username = scan.nextLine();
-            System.out.print("Masukkan password: ");
-            String password = scan.nextLine();
+                if (loggedInUser == null) {
+                    throw new loginExeptions("\nUser not found!");
+                }
 
-            mahasiswa.login(username, password);
-
-        } else {
-            System.out.println("Input tidak valid!");
+                System.out.println("Login berhasil!");
+                loggedInUser.displayInfo(username, password);
+                loggedInUser.displayAppMenu();
+            } catch (loginExeptions e) {
+                System.out.println("ERROR: " + e.getMessage());
+                System.out.println("Silakan coba lagi.\n");
+            }
         }
 
-        scan.close();
+        scanner.close();
+    }
+
+    public static User doLogin(String userInput, String passInput) {
+        for (User u : userList) {
+            if (u instanceof Admin admin) {
+                if (admin.getUsername().equals(userInput) && admin.getPassword().equals(passInput)) {
+                    return admin;
+                }
+            } else if (u instanceof Mahasiswa mhs) {
+                if (mhs.getNama().equals(userInput) && mhs.getNim().equals(passInput)) {
+                    return mhs;
+                }
+            }
+        }
+        return null;
     }
 }

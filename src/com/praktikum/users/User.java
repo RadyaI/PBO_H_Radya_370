@@ -25,9 +25,10 @@ public abstract class User {
         return nim;
     }
 
-    abstract public void login(String username, String pass);
+    // Ga dipake kayanya ini  
+    // abstract public void login(String username, String pass);
 
     abstract public void displayInfo(String nama, String nim);
 
-    abstract void displayAppMenu();
+    abstract public void displayAppMenu();
 }

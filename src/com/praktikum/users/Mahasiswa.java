@@ -1,8 +1,12 @@
 package com.praktikum.users;
 
+import java.util.InputMismatchException;
+import java.util.Iterator;
 import java.util.Scanner;
 
 import com.praktikum.actions.*;
+import com.praktikum.data.Item;
+import com.praktikum.main.loginSystem;
 
 public class Mahasiswa extends User implements MahasiswaActions {
     public Mahasiswa(String nama, String nim) {
@@ -12,19 +16,8 @@ public class Mahasiswa extends User implements MahasiswaActions {
     Scanner scan = new Scanner(System.in);
 
     @Override
-    public void login(String username, String pass) {
-        if (username.equals(super.getNama()) && pass.equals(super.getNim())) {
-            displayInfo(super.getNama(), super.getNim());
-            displayAppMenu();
-        } else {
-            System.out.println("Username atau Password Salah\n");
-        }
-    }
-
-    @Override
     public void displayInfo(String nama, String nim) {
-        System.out.println("\nLogin Berhasil\n");
-        System.out.printf("Nama: %s\n", nama);
+        System.out.printf("\nNama: %s\n", nama);
         System.out.printf("Nim: %s\n", nim);
     }
 
@@ -37,10 +30,16 @@ public class Mahasiswa extends User implements MahasiswaActions {
             System.out.println("1. Laporkan Barang Hilang");
             System.out.println("2. Lihat Daftar Laporan");
             System.out.println("0: LogOut");
-
-            System.out.print("Masukkan pilihan (1/2/0): ");
-            int pilihan = scan.nextInt();
-            scan.nextLine();
+            int pilihan = 0;
+            try {
+                System.out.print("Masukkan pilihan (1/2/0): ");
+                pilihan = scan.nextInt();
+                scan.nextLine();
+            } catch (InputMismatchException e) {
+                System.out.println("ERROR: Masukkan hanya angka!!");
+                scan.nextLine();
+                continue;
+            }
             switch (pilihan) {
                 case 1:
                     reportItem();
@@ -50,10 +49,10 @@ public class Mahasiswa extends User implements MahasiswaActions {
                     break;
                 case 0:
                     loop = false;
+                    loginSystem.main(null);
                     break;
                 default:
-                    System.err.println("Pilihan Tidak Valid");
-                    loop = false;
+                    System.err.println("Pilihan Tidak Valid...coba lagi");
                     break;
             }
         } while (loop);
@@ -70,6 +69,8 @@ public class Mahasiswa extends User implements MahasiswaActions {
         System.out.print("Lokasi terakhir ditemukan: ");
         String lokasiTerakhir = scan.nextLine();
 
+        loginSystem.reportedItem.add(new Item(namaBarang, deskripsiBarang, lokasiTerakhir));
+
         System.out.println("\n===============");
         System.out.println("Barang: " + namaBarang);
         System.out.println("Deskripsi Barang: " + deskripsiBarang);
@@ -79,6 +80,25 @@ public class Mahasiswa extends User implements MahasiswaActions {
 
     @Override
     public void viewReportedItems() {
-        System.err.println("\n>> Fitur Lihat Laporan Belum Tersedia <<");
+        Iterator<Item> it_item = loginSystem.reportedItem.iterator();
+        int index = 1;
+        boolean adaYangDilapor = true;
+
+        while (it_item.hasNext()) {
+            Item barang = it_item.next();
+            if (barang.getStatus().equals("Reported")) {
+                if (adaYangDilapor) {
+                    System.out.printf("%-5s %-25s %-40s %-30s\n", "NO", "NAMA", "DESKRIPSI", "LOKASI");
+                    adaYangDilapor = false;
+                }
+                System.out.printf("%-5d %-25s %-40s %-30s\n", index++, barang.getItemName(),
+                        barang.getDescription(), barang.getLocation());
+            }
+        }
+
+        if (adaYangDilapor) {
+            System.out.println("Tidak ada barang berstatus 'Reported'...");
+        }
     }
+
 }
