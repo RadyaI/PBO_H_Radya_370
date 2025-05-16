@@ -13,6 +13,9 @@ public class ManajemenStok {
         daftarBarang.add(new Barang("Laptop", 10));
         daftarBarang.add(new Barang("Mouse", 15));
         daftarBarang.add(new Barang("Keyboard", 7));
+        daftarBarang.add(new Barang("Headset", 16));
+        daftarBarang.add(new Barang("TWS", 40));
+        daftarBarang.add(new Barang("Monitor", 35));
 
         int pilihan;
 
@@ -37,7 +40,7 @@ public class ManajemenStok {
                         try {
                             int stok = scanner.nextInt();
                             daftarBarang.add(new Barang(nama, stok));
-                            System.out.println("Barang berhasil ditambahkan.");
+                            System.out.println(nama + " berhasil ditambahkan sebanyak " + stok);
                         } catch (InputMismatchException e) {
                             System.out.println("Input stok harus berupa angka!");
                             scanner.nextLine();
@@ -51,10 +54,13 @@ public class ManajemenStok {
                             System.out.println("\nDaftar Barang:");
                             Iterator<Barang> iterator = daftarBarang.iterator();
                             int i = 0;
+                            System.out.printf("%-10s %-20s %-10s\n", "No", "Nama Barang", "Stok");
+                            System.out.println("-------------------------------------");
                             while (iterator.hasNext()) {
                                 Barang b = iterator.next();
-                                System.out.println(i++ + ". " + b.getNama() + " - Stok: " + b.getStok());
+                                System.out.printf("%-10d %-20s %-10d\n", i++, b.getNama(), b.getStok());
                             }
+
                         }
                         break;
 
@@ -65,9 +71,11 @@ public class ManajemenStok {
                                 break;
                             }
 
+                            System.out.printf("%-10s %-20s %-10s\n", "No", "Barang", "Stok");
+                            System.out.println("-------------------------------------");
                             for (int i = 0; i < daftarBarang.size(); i++) {
                                 Barang b = daftarBarang.get(i);
-                                System.out.println(i + ". " + b.getNama() + " - Stok: " + b.getStok());
+                                System.out.printf("%-10d %-20s %-25d\n", i, b.getNama(), b.getStok());
                             }
 
                             System.out.print("\nPilih indeks barang: ");
@@ -79,11 +87,14 @@ public class ManajemenStok {
                             Barang barangDipilih = daftarBarang.get(indeks);
                             if (jumlahAmbil > barangDipilih.getStok()) {
                                 throw new StokTidakCukupException(
-                                    "Stok untuk " + barangDipilih.getNama() + " hanya tersisa " + barangDipilih.getStok());
+                                        "Stok untuk " + barangDipilih.getNama() + " hanya tersisa "
+                                                + barangDipilih.getStok());
                             }
 
                             barangDipilih.setStok(barangDipilih.getStok() - jumlahAmbil);
-                            System.out.println("Stok berhasil dikurangi.");
+                            System.out.printf("Stok %s berhasil dikurangi sebanyak %d.\n", barangDipilih.getNama(),
+                                    jumlahAmbil);
+                            System.out.printf("Stok %s tersisa %d\n", barangDipilih.getNama(), barangDipilih.getStok());
 
                         } catch (InputMismatchException e) {
                             System.out.println("Input harus berupa angka!");
