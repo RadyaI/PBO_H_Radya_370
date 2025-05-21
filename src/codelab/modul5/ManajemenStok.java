@@ -24,6 +24,7 @@ public class ManajemenStok {
             System.out.println("1. Tambah Barang Baru");
             System.out.println("2. Tampilkan Semua Barang");
             System.out.println("3. Kurangi Stok Barang");
+            System.out.println("4. Hapus Barang");
             System.out.println("0. Keluar");
             System.out.print("Pilih menu: ");
 
@@ -72,7 +73,7 @@ public class ManajemenStok {
                             }
 
                             System.out.printf("%-10s %-20s %-10s\n", "No", "Barang", "Stok");
-                            System.out.println("-------------------------------------");
+                            System.out.println("-------------------------------------\n");
                             for (int i = 0; i < daftarBarang.size(); i++) {
                                 Barang b = daftarBarang.get(i);
                                 System.out.printf("%-10d %-20s %-25d\n", i, b.getNama(), b.getStok());
@@ -106,6 +107,25 @@ public class ManajemenStok {
                         }
                         break;
 
+                    case 4:
+                        Iterator<Barang> it_barang = daftarBarang.iterator();
+                        if (daftarBarang.isEmpty()) {
+                            System.out.println("Barang Kosong...");
+                        } else {
+                            int i = 0;
+                                int ia = 0;
+                            System.out.printf("%-10s %-20s %-10s", "No", "Barang", "Stok");
+                            System.out.println("\n-------------------------------------");
+                            while (it_barang.hasNext()) {
+                                Barang b = it_barang.next();
+                                System.out.printf("%-10d %-20s %-10s\n", i++, b.getNama(), b.getStok());
+                            }
+                            System.out.print("\nMasukkan No barang yang ingin dihapus: ");
+                            int hapusBarang = scanner.nextInt();
+                            System.out.println("Barang " + daftarBarang.get(hapusBarang).getNama() + " berhasil dihapus...");
+                            daftarBarang.remove(hapusBarang);
+                        }
+                        break;
                     case 0:
                         System.out.println("Terima kasih!");
                         break;
