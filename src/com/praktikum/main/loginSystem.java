@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class loginSystem {
-    static public ArrayList<User> userList = new ArrayList<>();
-    static public ArrayList<Item> reportedItem = new ArrayList<>();
+    public static ArrayList<User> userList = new ArrayList<>();
+    public static ArrayList<Item> reportedItem = new ArrayList<>();
 
     public static void main(String[] args) {
         userList.add(new Admin("Admin", "Admin370"));
