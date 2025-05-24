@@ -39,7 +39,7 @@ class Mahasiswa {
     }
 }
 
-public class hehe {
+public class CRUD_Mahasiswa {
     public static void main(String[] args) {
         ArrayList<Mahasiswa> mahasiswaData = new ArrayList<>();
         Scanner scan = new Scanner(System.in);
