@@ -1,10 +1,8 @@
 # Ignore semua file hasil kompilasi
 bin/
-cobain.java
-lat.java
 
 # Ignore file dalam folder latihan (jika tidak ingin dimasukkan ke repo)
-src/latihan/
+
 
 # Ignore file terkait editor
 .vscode/
