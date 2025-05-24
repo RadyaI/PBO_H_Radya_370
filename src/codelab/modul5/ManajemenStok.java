@@ -113,7 +113,6 @@ public class ManajemenStok {
                             System.out.println("Barang Kosong...");
                         } else {
                             int i = 0;
-                                int ia = 0;
                             System.out.printf("%-10s %-20s %-10s", "No", "Barang", "Stok");
                             System.out.println("\n-------------------------------------");
                             while (it_barang.hasNext()) {
