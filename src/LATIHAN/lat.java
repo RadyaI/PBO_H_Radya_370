@@ -1,24 +1,23 @@
 package LATIHAN;
 
-import java.util.ArrayList;
-import java.util.Iterator;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
-public class lat {
+public class lat extends Application{
+
+    public void start(Stage stage){
+
+        VBox root = new VBox();
+        Scene scene = new Scene(root, 400, 400);
+        stage.setTitle("Coba bisa ga ya");
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
     public static void main(String[] args) {
-
-        String kota2[] = {"Malang", "Batu"};
-        kota2[1] = "Solo";
-
-        ArrayList<String> kota = new ArrayList<>();
-        kota.add("Malang");
-        kota.add("Batu");
-        kota.add("Jakarta");
-
-        kota.set(0, "Solo");
-        Iterator <String> it_kota = kota.iterator();
-
-        while(it_kota.hasNext()){
-            System.out.println(it_kota.next());
-        }
+        launch(args);
     }
 }
